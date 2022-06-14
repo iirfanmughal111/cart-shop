@@ -1,0 +1,164 @@
+{% extends 'blog/basic.html'%}
+{% block title %} Tech Juice {% endblock %}
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-11">
+      <div class="card" style="width: 18rem;">
+        <a href="blogview/{{first.blog_id}}"><img src='{{first.blog_imgs.url}}' class="card-img-top " style="max-height: 230px ;min-height: 230px " alt="..."></a>
+        <div class="card-body">
+            <a href="blogview/{{first.blog_id}}" class="links"><h5 class="card-title">{{first.blog_title}}</h5></a>
+            <a href="archive/{{first.blog_category}}" class="links">{{first.blog_category}}</a><br>
+            <span class="card-text">{{first.pub_date}}</span>
+            <span><i class="fa-solid mx-2 text-secondary fa-star" style="font-size: 12px;"></i></span>
+            
+        </div>
+      </div>
+    </div>
+    
+  <div class="col-md-4">
+    <div class="row my-3">
+      <div class="col-4">
+        <a href="blogview/{{third.blog_id}}" class="links"><img src="{{third.blog_imgs.url}}" class="img-fluid" style="height: 100px; width: 100px;" alt=""></a>
+      </div>
+      <div class="col-8">
+        <a href="blogview/{{third.blog_id}}" class="links"><h5>{{third.blog_title}}</a>
+          </h5>
+          <a href="archive/{{third.blog_category}}" class="links">{{third.blog_category}}</a><br>
+        <span>{{third.pub_date}}</span>
+        <span><i class="fa-solid mx-2 text-secondary fa-star" style="font-size: 12px;"></i></span>
+
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-4">
+        <a href="blogview/{{fourth.blog_id}}" class="links"><img src="{{fourth.blog_imgs.url}}" class="img-fluid" style="height: 100px; width: 100px;" alt=""></a>
+      </div>
+      <div class="col-8">
+        <a href="blogview/{{fourth.blog_id}}" class="links"><h5>{{fourth.blog_title}}</a>
+          </h5>
+          <a href="archive/{{fourth.blog_category}}" class="links">{{fourth.blog_category}}</a><br>
+        <span>{{fourth.pub_date}}</span>
+        <span><i class="fa-solid mx-2 text-secondary fa-star" style="font-size: 12px;"></i></span>
+
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-4">
+        <a href="blogview/{{fifth.blog_id}}" class="links"><img src="{{fifth.blog_imgs.url}}" class="img-fluid" style="height: 100px; width: 100px;" alt=""></a>
+      </div>
+      <div class="col-8">
+        <a href="blogview/{{fifth.blog_id}}" class="links"><h5>{{fifth.blog_title}}
+          </h5></a>
+        <a href="archive/{{fifth.blog_category}}" class="links">{{fifth.blog_category}}</a><br>
+        <span>{{fifth.pub_date}}</span>
+        <span><i class="fa-solid mx-2 text-secondary fa-star" style="font-size: 12px;"></i></span>
+
+      </div>
+    </div>
+  
+  
+  </div>
+
+
+    <div class="col-md-4 col-11">
+      <div class="card" style="width: 18rem;">
+        <a href="blogview/{{second.blog_id}}" class="links"><img src='{{second.blog_imgs.url}}' class="card-img-top " style="max-height: 230px ;min-height: 230px " alt="..."></a>
+        <div class="card-body">
+            <a href="blogview/{{second.blog_id}}" class="links"><h5 class="card-title">{{second.blog_title}}</h4></a>
+            <a href="archive/{{second.blog_category}}" class="links">{{second.blog_category}}</a><br>
+            <span class="card-text">{{second.pub_date}}</span>
+            <span><i class="fa-solid mx-2 text-secondary fa-star" style="font-size: 12px;"></i></span>
+            
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="row">
+      <div class="col my-5 d-flex justify-content-end">
+        <a href="#" class="links"><h6>Featured Category>></h6></a>
+
+
+      </div>
+      
+    </div>
+    <div class="row" style="max-height: 450px; min-height:450px;">
+<div class="col-md-6 d-flex justify-content-center flex-column "  style="background-color: #8ed1fc;">
+        <h5>{{last_featured.blog_title}}</h5>
+        <p>{{last_featured.blog_desc|truncatechars:200}}</p>
+        <a href="blogview/{{last_featured.blog_id}}" style="max-width:100px;" class="btn rounded btn-sm bg-black text-white">Read more</a>
+        
+
+    </div>
+    <div class="col-md-6 d-flex justify-content-center " style="margin-left: -2%;">
+      <img src="{{last_featured.blog_imgs.url}}" class="img-fluid"  alt="">
+      
+    </div>
+    </div>
+    
+  </div>
+
+
+</div>
+  
+
+{%endblock%}
+{% block content%}
+<!-- 
+{%for post in pages.object_list%}
+{{post.pub_date}}
+{%endfor%} -->
+
+{%for post in allposts.object_list%}
+<div class="row">
+  <div class="col-8">
+    <a href="blogview/{{post.blog_id}}" class="links"><h6>{{post.blog_title}}</h6></a>
+    
+    <p>{{post.blog_desc|truncatechars:50}}</p>
+    <p>{{post.blog_category}}</p>
+    <p>{{post.pub_date}}</p>
+  </div>
+  <div class="col-4">
+
+    <a href="blogview/{{post.blog_id}}"><img src="{{post.blog_imgs.url}}" style="max-height:150px ;min-width: 150px;min-height: 150px; max-width: 150px;" class="img-fluid rounded onhoverup mb-2" alt=""></a>
+  </div>
+  <br><br>
+  <hr class="w-75" >
+  <br><br>
+</div>
+
+{%endfor%}
+<div class="row mt-5 mb-3 d-flex justify-content-center">
+  <div class="col-4 ">
+    <p>page: {{allposts.number}}/{{allposts.paginator.num_pages}}</p>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {%if allposts.has_previous%}
+        <li class="page-item"><a class="page-link" href="{%url 'blogHome'%}?page={{allposts.previous_page_number}}">Previous</a></li>
+        {%endif%}
+        {% for num_page in allposts.paginator.page_range %}
+        <br>
+        {% if allposts.number == num_page %}
+        <li class="page-item active"><a class="page-link" href="{%url 'blogHome'%}?page={{allposts.num_page}}">{{num_page}}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{%url 'blogHome'%}?page={{num_page}}">{{num_page}}</a></li>
+
+        {% endif %}
+        <br>
+          
+          
+        {% endfor %}
+       
+        {%if allposts.has_next%}
+        <li class="page-item"><a class="page-link" href="{%url 'blogHome'%}?page={{allposts.next_page_number}}">Next</a></li>
+        {%endif%}
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'blog/basic.html' %}
+{% block title %} {{post.blog_category}} {% endblock %}
+
+{% block content %}
+{%for post in allcatblogs %}
+<div class="row">
+    <div class="col-8">
+        
+        <a href="{{post.blog_category}}" class="links "><p>{{post.blog_category}}</p></a>
+        <a href="../blogview/{{post.blog_id}}" class="links"><h5>{{post.blog_title}}</h5></a>
+        <p>{{post.blog_desc|truncatechars:200}}</p>
+        <p>{{post.pub_date}}</p>
+        <a href="../blogview/{{post.blog_id}}" class="btn onhoverup btn-sm bg-black text-white my-3">read more>></a>
+        
+
+</div>
+<div class="col-4">
+    <a href="../blogview/{{post.blog_id}}">
+    <img src="{{post.blog_imgs.url}}" class="img-fluid rounded shadow onhoverup" style="max-height: 200px; " alt=""></a>
+    
+</div>
+    <hr class="w-74  my-5">
+    
+</div>
+{% endfor %}
+
+{%endblock%}
+

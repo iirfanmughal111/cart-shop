@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .links{
+    text-decoration: none !important;
+    color: rgba(70, 66, 61, 0.795) !important;
+    cursor: pointer ;
+  }
+  .img-hover{
+
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .onhoverup:hover {
+    transform: translate(0,-10px);
+    -webkit-transform: translate(0,-10px);
+    -moz-transform: translate(0,-10px);
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.onhoverup {
+    position: relative;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+    </style>
+    <!-- {%block head%}
+    {%endblock%} -->
+    <!-- <link rel="stylesheet" href=""></link> -->
+    <title>{%block title%}{%endblock%}</title>
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand onhoverup" href="http://127.0.0.1:8000/blog/">Tech Juice</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link onhoverup active" aria-current="page" href="http://127.0.0.1:8000/blog/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link onhoverup" href="http://127.0.0.1:8000/blog/archive/tech">technolgy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link onhoverup" href="http://127.0.0.1:8000/blog/archive/mobile">mobile</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link onhoverup dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Mobliles
+              </a>
+              <ul class="onhoverup dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="onhoverup dropdown-item" href="http://127.0.0.1:8000/blog/archive/iphone">iphone</a></li>
+                <li><hr class="onhoverup dropdown-divider"></li>
+                <li><a class="onhoverup dropdown-item" href="http://127.0.0.1:8000/blog/archive/samsung">Samsung</a></li>
+                <li><hr class="onhoverup dropdown-divider"></li>
+                <li><a class="onhoverup dropdown-item" href="http://127.0.0.1:8000/blog/archive/nokia">Nokia</a></li>
+                <li><hr class="onhoverup dropdown-divider"></li>
+                <li><a class="onhoverup dropdown-item" href="http://127.0.0.1:8000/blog/archive/oppo">Oppo</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success onhoverup" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    {%block body%}
+   
+    {%endblock%}
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-8">
+          {%block content%}
+          {%endblock%}
+        </div>
+        <div class="col-md-4">
+          <a href="#">
+            <img src="https://cdn.techjuice.pk/wp-content/uploads/2021/05/binance.jpeg" class="img-fluid onhoverup" alt=""></a>
+          <h5 class="mt-5">Popular Posts</h5>
+          <hr>
+          
+          <div class="row my-4 py-3 rounded" style="background-color: rgb(237, 193, 243);">
+            <div class="col-4">
+              <a href="blogview/{{fifth.blog_id}}" class="links">
+                <img src="{{fifth.blog_imgs.url}}" class="img-fluid onhoverup" style="border: 1px solid black; padding: 2px; height:70px; width:70px; border-radius: 50%;" alt=""></a>
+            </div>
+            <div class="col-8">
+              <a href="blogview/{{fifth.blog_id}}" class="links"><h5>{{fifth.blog_title}}</h5></a>
+              <p>{{fifth.pub_date}}</p>
+            </div>
+          </div>
+          <div class="row my-4 py-3 rounded" style="background-color: rgb(237, 193, 243);">
+            <div class="col-4">
+              <a href="blogview/{{fourth.blog_id}}" class="links">
+                <img src="{{fourth.blog_imgs.url}}" class="img-fluid onhoverup" style="border: 1px solid black; padding: 2px; height:70px; width:70px; border-radius: 50%;" alt=""></a>
+            </div>
+            <div class="col-8">
+              <a href="blogview/{{fourth.blog_id}}" class="links"><h5>{{fourth.blog_title}}</h5></a>
+              <p>{{fourth.pub_date}}</p>
+            </div>
+          </div>
+          <div class="row my-4 py-3 rounded" style="background-color: rgb(237, 193, 243);">
+            <div class="col-4">
+              <a href="blogview/{{third.blog_id}}" class="links">
+                <img src="{{third.blog_imgs.url}}" class="img-fluid onhoverup" style="border: 1px solid black; padding: 2px; height:70px; width:70px; border-radius: 50%;" alt=""></a>
+            </div>
+            <div class="col-8">
+              <a href="blogview/{{third.blog_id}}" class="links"><h5>{{third.blog_title}}</h5></a>
+              <p>{{third.pub_date}}</p>
+            </div>
+          </div>
+          <div class="row my-4 py-3 rounded" style="background-color: rgb(237, 193, 243);">
+            <div class="col-4">
+              <a href="blogview/{{second.blog_id}}" class="links ">
+                <img src="{{second.blog_imgs.url}}" class="img-fluid onhoverup" style="border: 1px solid black; padding: 2px; height:70px; width:70px; border-radius: 50%;" alt=""></a>
+            </div>
+            <div class="col-8">
+              <a href="blogview/{{second.blog_id}}" class="links "><h5>{{second.blog_title}}</h5></a>
+              <p>{{second.pub_date}}</p>
+            </div>
+          </div>
+          <div class="row my-4 py-3 rounded" style="background-color: rgb(237, 193, 243);">
+            <div class="col-4">
+              <a href="blogview/{{first.blog_id}}" class="links ">
+                <img src="{{first.blog_imgs.url}}" class="img-fluid onhoverup" style="border: 1.5px solid black; padding: 2px; height:70px; width:70px; border-radius: 50%;" alt=""></a>
+            </div>
+            <div class="col-8">
+              <a href="blogview/{{first.blog_id}}" class="links "><h5>{{first.blog_title}}</h5></a>
+              <p>{{first.pub_date}}</p>
+            </div>
+          </div>
+          
+          <!-- {%block aside%}
+          {%endblock%} -->
+
+        </div>
+      </div>
+    </div>
+  
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3c6a48fcc7.js" crossorigin="anonymous"></script>
+    
+  </body>
+ 
+</html>

@@ -1,0 +1,119 @@
+{% extends 'blog/basic.html'%}
+{%block title%} {{singleBlog.blog_title}}{%endblock%}
+ <!-- {% block head %}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{%endblock%} -->
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            
+            <a href="../archive/{{singleBlog.blog_category}}" class="links onhoverup"><p>{{singleBlog.blog_category}}</p></a>
+            <h1>{{singleBlog.blog_title}}</h1>
+        </div>
+        <div class="col-md-6">
+            <img src="{{singleBlog.blog_imgs.url}}" class="border rouded shadow onhoverup border-secandary" style="max-height: 400px;" class="img-fluid" alt="">
+        </div>
+    </div>
+
+    
+        
+
+</div>
+
+
+{% endblock %}
+            {%block content%}
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                
+                <button type="button" class="btn" ><i class="fa-solid fa-share-nodes"></i></button>
+                
+                <span class="mx-2 mt-2">0 share</span>
+                <button type="button" class="btn onhoverup" style="color: white; background-color: #3a579a;">Facebook</button>
+                <button type="button" class="btn onhoverup " style="color: white; background-color: #00abf0;">Twitter</button>
+                <button type="button" class="btn onhoverup " style="color: white; background-color: #127bb6 ;">LinkedIn</button>
+                <button type="button" class="btn onhoverup " style="color: white; background-color: #1d9e11;">Whatsapp</button>
+                <button type="button" class="btn onhoverup " style="color: white; background-color: #dd4b39;">Gmail</button>
+              </div>
+              <br><br>
+            {{singleBlog.blog_desc}}
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-12 my-5">
+
+                    <h4> Post comments </h4>
+                    <a href="#" class="links onhoverup">click here to comment on post</a>
+
+                    {%for comment in post_comments%}
+                    <strong>{{comment.c_name}}</strong>
+                    <p>{{comment.c_msg}}</p>
+                    <span>{{comment.c_email}}</span>
+                    <span class="fw-bold mx-3"> | </span>
+                    <span>{{comment.c_date}}</span>
+                    <hr class="mb-5">
+            
+            {%endfor%}
+            <form action="/postcomments" method="post">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name:</label>
+                  <input type="text" class="form-control" placeholder="e.g. john" id="f_name" name="">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address:</label>
+                  <input type="email" class="form-control" id="f_email" placeholder="e.g. john@abc,xyz" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Your comment</label>
+                    <textarea class="form-control" id="f_msg" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    
+                  </div>
+                  <div class="mb-3">
+                    <input type="hidden" id="f_post" name="{{singleBlog}}" >
+                    
+                  </div>
+                <button type="submit" class="btn btn-danger">Not working yet</button>
+              </form>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <h3 class="mb-5">Related blogs</h3>
+              </div>
+              <div class="col-md-4">
+                <a href="{{s_cat1.blog_id}}" class="links">
+                  <img src="{{s_cat1.blog_imgs.url}}" class="img-fluid border onhoverup border-secandary alt="" style="max-height: 220px; min-height:180px;"></a>
+                <a href="{{s_cat1.blog_id}}" class="links"><h6 class="mt-4">{{s_cat1.blog_title}}</h6></a>
+                <a href="../archive/{{s_cat1.blog_category}}" class="links"><h6 class="mt-4">{{s_cat1.blog_category}}</h6></a>
+                <p>{{s_cat1.pub_date}}</p>
+
+              </div>
+              <div class="col-md-4">
+                <a href="{{s_cat2.blog_id}}" class="links">
+                  <img src="{{s_cat2.blog_imgs.url}}" class="img-fluid border onhoverup border-secandary alt="" style="max-height: 180px; min-height:180px;"></a>
+                <a href="{{s_cat2.blog_id}}" class="links"><h6 class="mt-4">{{s_cat2.blog_title}}</h6></a>
+                <a href="../archive/{{s_cat2.blog_category}}" class="links"><h6 class="mt-4">{{s_cat2.blog_category}}</h6></a>
+                <p>{{s_cat1.pub_date}}</p>
+
+              </div>
+              <div class="col-md-4">
+                <a href="{{s_cat3.blog_id}}" class="links">
+                <img src="{{s_cat3.blog_imgs.url}}" class="img-fluid onhoverup border border-secandary alt="" style="max-height: 220px; min-height:180px;"></a>
+                <a href="{{s_cat3.blog_id}}" class="links"><h6 class="mt-4">{{s_cat3.blog_title}}</h6></a>
+                <a href="../archive/{{s_cat3.blog_category}}" class="links"><h6 class="mt-4">{{s_cat3.blog_category}}</h6></a>
+                <p>{{s_cat1.pub_date}}</p>
+
+              </div>
+            </div>
+            
+    
+</div>
+            {%endblock%}
