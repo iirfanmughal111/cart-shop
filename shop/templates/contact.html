@@ -1,0 +1,47 @@
+{% extends 'basic.html' %}
+
+{% block title %} contact {% endblock %}
+{% block body %} 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="contact" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="name"  class="form-label">Name</label>
+                  <input type="text"  name="name" class="form-control" id="name" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your name with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email"  class="form-label">email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Phone"  class="form-label">Phone</label>
+                    <input type="Phone" class="form-control" id="Phone" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your contact number with anyone else.</div>
+                  </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" name="desc" id="desc" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Comments</label>
+                  </div>
+                <button type="submit"  id=" btn-form"class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>
+<h1>test elemetnt</h1>
+
+<!-- {% block jsContact %}
+<script>
+ const myform = document.getElementById('btn-form');
+ console.log(myform);
+// form_sub.addEventListener('click',()=>{
+//   console.log('submitted');
+// });
+
+</script>
+{%endblock%} -->
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'basic.html' %}
+
+{% block title %}{{product.product_title}} {% endblock %}
+{% block body %} 
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="/media/{{product.image}}" class="img-fluid" alt="product_img">
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-primary rounded-pill mx-2 my-5 ">Buy Now</button>
+        </div>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-primary rounded-pill mx-2 my-5 ">Add to cart</button> 
+      </div>
+      
+        
+    </div>
+    <div class="col-md-8">
+      <h1>{{product.product_title}}</h1>
+      <p>{{product.pub_date}}</p>
+      <p><b>{{product.price}}</b></p>
+      <p>{{product.desc}}</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 
+
